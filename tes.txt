@@ -1,0 +1,46 @@
+                   React Project Folder Structure
+my-react-app/
+├── public/                  # Static files (index.html, favicon, etc.)
+│   └── index.html
+│
+├── src/                     # Main source code
+│   ├── assets/              # Images, fonts, logos, icons
+│   │   └── logo.png
+│
+│   ├── components/          # Reusable UI components
+│   │   ├── Header.jsx
+│   │   └── Button.jsx
+│
+│   ├── pages/               # Top-level views (routes)
+│   │   ├── Home.jsx
+│   │   ├── About.jsx
+│   │   └── Login.jsx
+│
+│   ├── layouts/             # Page layouts (optional)
+│   │   └── MainLayout.jsx
+│
+│   ├── services/            # API calls (e.g., Axios calls)
+│   │   └── userService.js
+│
+│   ├── hooks/               # Custom hooks
+│   │   └── useAuth.js
+│
+│   ├── context/             # React context (e.g., AuthContext)
+│   │   └── AuthContext.jsx
+│
+│   ├── utils/               # Utility functions
+│   │   └── validators.js
+│
+│   ├── routes/              # App routing definitions
+│   │   └── AppRoutes.jsx
+│
+│   ├── App.jsx              # Root component
+│   ├── index.js             # React DOM render
+│   └── tailwind.css         # Tailwind CSS entry (if using Tailwind)
+│
+├── .env                     # Environment variables
+├── .gitignore
+├── package.json
+├── tailwind.config.js       # Tailwind config (if using Tailwind)
+├── postcss.config.js        # PostCSS config (if using Tailwind)
+└── README.md
