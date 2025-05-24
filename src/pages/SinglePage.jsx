@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const SinglePage = () => {
@@ -50,6 +50,11 @@ const SinglePage = () => {
               >
                 Delete
               </button>
+              <Link to={`/edit-page/${book.id}`}>
+                <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+                  Edit
+                </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -11,8 +11,10 @@ const CreatePage = () => {
     bookGenre: "",
   });
   const handleChange = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
+    // const value = e.target.value;
+    // const name = e.target.name;
+
+    let { name, value } = e.target;
     setBookDatas({
       ...bookDatas,
       [name]: value,
@@ -20,12 +22,22 @@ const CreatePage = () => {
   };
   console.log(bookDatas);
 
-  const addBook = async () => {
-    const response = await axios.post("http://localhost:3000/book", bookDatas);
-    if (response.status === 201) {
-      navigate("/");
-    } else {
-      alert("Failed");
+  const addBook = async (e) => {
+    e.preventDefault();
+    try {
+      //mathi state ma vanko data lai api din -- localhost:3000/book -> post method
+      // post garda dueta pathaunai paryo . pathauna data ko always object hunu paro. jun at the end axois formate ma
+      const response = await axios.post("http://localhost:3000/book", {
+        bookDatas,
+      });
+      if (response.status === 200) {
+        alert("New book Added Successfully!");
+        navigate("/");
+      } else {
+        alert("Something Wrong");
+      }
+    } catch (err) {
+      console.log("Something Wrong");
     }
   };
   return (
@@ -33,7 +45,7 @@ const CreatePage = () => {
       <Navbar />
       <div className="flex items-center justify-center p-12">
         <div className="mx-auto w-full max-w-[550px] bg-white">
-          <form>
+          <form onSubmit={addBook}>
             <div className="mb-3">
               <label className="mb-3 block text-base font-medium text-[#07074D]">
                 Book Name
@@ -85,7 +97,7 @@ const CreatePage = () => {
               </div>
               <div></div>
               <button
-                onClick={addBook}
+                type="submit"
                 className="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none"
               >
                 Add Book

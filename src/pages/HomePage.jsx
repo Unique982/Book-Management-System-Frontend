@@ -16,20 +16,11 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
+
       <div className="flex flex-wrap">
-        {books.length > 0 ? (
-          books.map((book) => (
-            <Card
-              key={book.id}
-              id={book.id}
-              bookname={book.bookName}
-              price={book.bookPrice}
-              author={book.bookAuthor}
-            />
-          ))
-        ) : (
-          <span>No Books available</span>
-        )}
+        {books.map((book) => (
+          <Card key={book.id} book={book} />
+        ))}
       </div>
     </>
   );
